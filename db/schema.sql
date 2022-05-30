@@ -1,0 +1,6 @@
+-- Database schema
+-- DROP DATABASE
+DROP DATABASE IF EXISTS booktaku_db;
+
+-- CREATE DATABASE
+CREATE DATABASE booktaku_db;
