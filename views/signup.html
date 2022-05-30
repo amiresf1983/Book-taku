@@ -17,25 +17,34 @@
 <body>
     
     <div class="container">
-        <div class="forms">
-            <div class="form login">
-                <span class="title">Login</span>
+       
+            <!-- Registration Form -->
+            <div class="form signup">
+                <span class="title">Registration</span>
 
                 <form action="#">
                     <div class="input-field">
-                        <input type="text" placeholder="Enter your username" required>
+                        <input type="text" placeholder="Enter your name" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your email" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="password" placeholder="Enter your password" required>
+                        <input type="password" class="password" placeholder="Create a password" required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Confirm a password" required>
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
 
                     <div class="checkbox-text">
                         <div class="checkbox-content">
-                            <input type="checkbox" id="logCheck">
-                            <label for="logCheck" class="text">Remember me</label>
+                            <input type="checkbox" id="sigCheck">
+                            <label for="sigCheck" class="text">Remember me</label>
                         </div>
                         
                         <a href="#" class="text">Forgot password?</a>
@@ -48,12 +57,8 @@
 
                 <div class="login-signup">
                     <span class="text">Not a member?
-                        <a href="signup.html" class="text signup-link">Signup now</a>
+                        <a href="login.html" class="text login-link">Signup now</a>
                     </span>
-                </div>
-            </div>
-
-           
                 </div>
             </div>
         </div>
