@@ -1,10 +1,15 @@
 const router = require('express').Router();
 const apiRoutes = require('./api');
-const homeRoutes = require('./book-routes.js');
-const dashboardRoutes = require('./dashboard-routes.js'); // optional
+//const libraryRoutes = require('./library-routes.js');
+const homeRoutes = require('./home-routes.js'); // optional
 
-router.use('/dashboard', dashboardRoutes);
+// the library page with the books
+//router.use('/library', libraryRoutes);
+
+// the library page with all the books 
 router.use('/', homeRoutes);
+
+// api routes 
 router.use('/api', apiRoutes);
 
 

@@ -2,24 +2,26 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const {
     User,
-    Post,
+    Book,
     Comment
 } = require('../models');
 
 
 router.get('/', (req, res) => {
-    Post.findAll({
+    Book.findAll({
             attributes: [
                 'id',
                 'title',
-                'content',
-                'created_at'
-            ],
-            include: [{
-                    model: Comment,
-                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                'author',
+                'description', 
+                'pages',
+                'user_id'
+            ]
+            /*include: [{
+                    model: Book,
+                    attributes: [],
                     include: {
-                        model: User,
+                        model: Book,
                         attributes: ['username']
                     }
                 },
@@ -27,15 +29,15 @@ router.get('/', (req, res) => {
                     model: User,
                     attributes: ['username']
                 }
-            ]
+            ]*/
         })
-        .then(dbPostData => {
-            const posts = dbPostData.map(post => post.get({
+        .then(dbBookData => {
+            const book = dbBookData.map(book => book.get({
                 plain: true
             }));
 
-            res.render('book-page', {
-                posts,
+            res.render('homepage', {
+                book,
                 loggedIn: req.session.loggedIn
             });
         })
@@ -45,22 +47,24 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/post/:id', (req, res) => {
-    Post.findOne({
+router.get('/book/:id', (req, res) => {
+    Book.findOne({
             where: {
                 id: req.params.id
             },
             attributes: [
                 'id',
                 'title',
-                'content',
-                'created_at'
+                'author',
+                'description', 
+                'pages',
+                'user_id'
             ],
             include: [{
                     model: Comment,
-                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                    attributes: ['id', 'comment_text', 'user_id', 'book_id'],
                     include: {
-                        model: User,
+                        model: Book,
                         attributes: ['username']
                     }
                 },
@@ -70,20 +74,20 @@ router.get('/post/:id', (req, res) => {
                 }
             ]
         })
-        .then(dbPostData => {
-            if (!dbPostData) {
+        .then(dbBookData => {
+            if (!dbBookData) {
                 res.status(404).json({
-                    message: 'No post found with this id'
+                    message: 'No book found with this id'
                 });
                 return;
             }
 
-            const post = dbPostData.get({
+            const book = dbBookData.get({
                 plain: true
             });
 
-            res.render('single-post', {
-                post,
+            res.render('book-name', { ////////////////////////////////////////////////// SINGLE BOOK
+                book,
                 loggedIn: req.session.loggedIn
             });
         })
@@ -98,23 +102,28 @@ router.get('/login', (req, res) => {
         res.redirect('/');
         return;
     }
+    res.render('login'); 
 
-    res.render('login');
+    // FOR TESTING -> THIS WORKS 
+    //res.send('GET request to the login page'); 
 });
 
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
+        
         return;
     }
-
     res.render('signup');
+
+    // FOR TESTING -> THIS WORKS 
+    res.send('GET request to the signup page'); 
 });
 
 
-router.get('*', (req, res) => {
+/*router.get('*', (req, res) => {
     res.status(404).send("You don't have access!");
-})
+})*/ 
 
 
 module.exports = router;
