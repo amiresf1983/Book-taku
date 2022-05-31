@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ["id", "comment_text", "book_id", "user_id", "created_at"],
+                    attributes: ["id", "comment_text", "user_id", "book_id"],
                     include: {
                         model: User,
                         attributes: ["username"],
@@ -36,9 +36,10 @@ router.get("/", (req, res) => {
         res.send('GET request for the book page'); 
 });
 
-/*router.get('/:id', (req, res) => {
+router.get('/books', (req, res) => {
     res.send('GET request for the book page'); 
-});*/ 
+    return 
+}); 
 
 // Getting a single book
 router.get("/:id", (req, res) => {
@@ -53,7 +54,7 @@ router.get("/:id", (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ["id", "comment_text", "book_id", "user_id", "created_at"],
+                    attributes: ["id", "comment_text", "user_id", "book_id"],
                     include: {
                         model: User,
                         attributes: ["username"],
