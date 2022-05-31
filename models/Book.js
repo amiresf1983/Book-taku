@@ -1,4 +1,4 @@
-const {Model, DataTypes} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Book extends Model {}
@@ -20,7 +20,7 @@ author: {
   allowNull: false,
 },
 description: {
-  type: DataTypes.STRING,
+  type: DataTypes.TEXT('long'),
   allowNull: false,
 },
 pages: {
