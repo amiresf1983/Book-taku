@@ -1,16 +1,16 @@
 const router = require('express').Router();
 const {
     User,
-    Post,
+    Book,
     Comment
 } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-// Gettting all posts
+// Gettting all books
 router.get("/", (req, res) => {
-    Post.findAll({
-            attributes: ["id", "content", "title", "created_at"],
+    Book.findAll({
+            attributes: ["id", "title", "author", "description", "pages", "user_id"],
             order: [
                 ["created_at", "DESC"]
             ],
@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+                    attributes: ["id", "comment_text", "user_id", "book_id"],
                     include: {
                         model: User,
                         attributes: ["username"],
@@ -28,27 +28,33 @@ router.get("/", (req, res) => {
                 },
             ],
         })
-        .then((dbPostData) => res.json(dbPostData))
+        .then((dbBookData) => res.json(dbBookData))
         .catch((err) => {
             console.log(err);
             res.status(500).json(err);
         });
+        res.send('GET request for the book page'); 
 });
 
-// Getting single post
+router.get('/books', (req, res) => {
+    res.send('GET request for the book page'); 
+    return 
+}); 
+
+// Getting a single book
 router.get("/:id", (req, res) => {
-    Post.findOne({
+    Book.findOne({
             where: {
                 id: req.params.id,
             },
-            attributes: ["id", "content", "title", "created_at"],
+            attributes: ["id", "title", "author", "description", "pages", "user_id"],
             include: [{
                     model: User,
                     attributes: ["username"],
                 },
                 {
                     model: Comment,
-                    attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+                    attributes: ["id", "comment_text", "user_id", "book_id"],
                     include: {
                         model: User,
                         attributes: ["username"],
@@ -56,14 +62,14 @@ router.get("/:id", (req, res) => {
                 },
             ],
         })
-        .then((dbPostData) => {
-            if (!dbPostData) {
+        .then((dbBookData) => {
+            if (!dbBookData) {
                 res.status(404).json({
-                    message: "No post found with this id"
+                    message: "No book found with this id"
                 });
                 return;
             }
-            res.json(dbPostData);
+            res.json(dbBookData);
         })
         .catch((err) => {
             console.log(err);
@@ -71,24 +77,24 @@ router.get("/:id", (req, res) => {
         });
 });
 
-// Creating posts
-router.post("/", withAuth, (req, res) => {
+// Creating comments
+router.post("/:id", withAuth, (req, res) => {
     console.log("creating");
-    Post.create({
+    Comment.create({
             title: req.body.title,
             content: req.body.post_content,
             user_id: req.session.user_id
         })
-        .then((dbPostData) => res.json(dbPostData))
+        .then((dbCommentData) => res.json(dbCommentData))
         .catch((err) => {
             console.log(err);
             res.status(500).json(err);
         });
 });
 
-// Updating posts
+// Updating comments
 router.put("/:id", withAuth, (req, res) => {
-    Post.update({
+    Comment.update({
             title: req.body.title,
             content: req.body.post_content,
         }, {
@@ -96,14 +102,14 @@ router.put("/:id", withAuth, (req, res) => {
                 id: req.params.id,
             },
         })
-        .then((dbPostData) => {
-            if (!dbPostData) {
+        .then((dbCommentData) => {
+            if (!dbCommentData) {
                 res.status(404).json({
-                    message: "No post found with this id"
+                    message: "No comment found with this id"
                 });
                 return;
             }
-            res.json(dbPostData);
+            res.json(dbCommentData);
         })
         .catch((err) => {
             console.log(err);
@@ -111,27 +117,28 @@ router.put("/:id", withAuth, (req, res) => {
         });
 });
 
-//Deleting posts
+// Deleting comments 
 router.delete("/:id", withAuth, (req, res) => {
-    Post.destroy({
+    Comment.destroy({
             where: {
                 id: req.params.id,
             },
         })
-        .then((dbPostData) => {
-            if (!dbPostData) {
+        .then((dbCommentData) => {
+            if (!dbCommentData) {
                 res.status(404).json({
-                    message: "No post found with this id"
+                    message: "No comment found with this id"
                 });
                 return;
             }
-            res.json(dbPostData);
+            res.json(dbCommentData);
         })
         .catch((err) => {
             console.log(err);
             res.status(500).json(err);
         });
 });
+
 
 
 module.exports = router;

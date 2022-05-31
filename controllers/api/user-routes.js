@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {
     User,
-    Post,
+    Book,
     Comment
 } = require('../../models');
 
@@ -29,14 +29,14 @@ router.get('/:id', (req, res) => {
                 id: req.params.id
             },
             include: [{
-                    model: Post,
-                    attributes: ['id', 'title', 'content', 'created_at']
+                    model: Book,
+                    attributes: ['id', 'title', 'author', 'description', 'pages', 'user_id'] // don't think we need this but keeping it anyway just incase
                 },
                 {
                     model: Comment,
-                    attributes: ['id', 'comment_text', 'created_at'],
+                    attributes: ['id', 'comment_text', 'user_id', 'book_id'],
                     include: {
-                        model: Post,
+                        model: Book,
                         attributes: ['title']
                     }
                 }
@@ -112,7 +112,7 @@ router.post('/login', (req, res) => {
                 return;
             }
 
-            req.session.save(() => {
+            /*req.session.save(() => {
                 req.session.user_id = dbUserData.id;
                 req.session.username = dbUserData.username;
                 req.session.loggedIn = true;
@@ -121,7 +121,7 @@ router.post('/login', (req, res) => {
                     user: dbUserData,
                     message: 'You are now logged in!'
                 });
-            });
+            });*/ 
         });
 });
 
