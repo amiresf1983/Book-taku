@@ -20,6 +20,7 @@ Book.hasMany(User, {
 
 Comment.belongsTo(Book, {
     foreignKey: 'book_id'
+})
 
 Book.hasMany(Comment, {
     foreignKey: 'book_id'
