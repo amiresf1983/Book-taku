@@ -1,3 +1,39 @@
+ html {
+   font-family: 'Athiti', serif;
+ }
+
+
+header {
+  /* background: #faf5ec; */
+  /* background-color: #b1c8c7; */
+  /* background-color: #a39081; */
+  /* background-color: #d6a692; */
+  /* background-color: #efd9b4; */
+  background-color: #b1c8c7;
+  width:100%;
+  text-align:center;
+}
+body {
+  background: #faf5ec;
+  margin: 2rem;
+}
+
+/* positioning for logo */
+.logo {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+/* styling for nav items */
+nav {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+
+.library {
+  margin: 3rem;
+  background-color: #faf5ec;
+}
 
 /* styling for book title on library.handlebars */
 .library-book-title {

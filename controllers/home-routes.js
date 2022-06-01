@@ -65,7 +65,7 @@ router.get('/book/:id', (req, res) => {
                     attributes: ['id', 'comment_text', 'user_id', 'book_id'],
                     include: {
                         model: Book,
-                        attributes: ['username']
+                        attributes: ['user_id']
                     }
                 },
                 {
