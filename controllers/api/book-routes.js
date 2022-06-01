@@ -28,11 +28,16 @@ router.get("/", (req, res) => {
                 },
             ],
         })
-        .then((dbBookData) => res.json(dbBookData))
-        .catch((err) => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+        .then(dbBookData => {
+            const book = dbBookData.map(book => book.get({
+                plain: true
+            }));
+
+            res.render('library', {
+                book,
+                loggedIn: req.session.loggedIn
+            });
+        })
         // res.send('GET request for the book page'); 
 });
 

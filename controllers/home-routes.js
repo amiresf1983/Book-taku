@@ -7,7 +7,7 @@ const {
 } = require('../models');
 
 
-router.get('/library', (req, res) => {
+router.get('/', (req, res) => {
     Book.findAll({
             attributes: [
                 'id',
@@ -35,8 +35,8 @@ router.get('/library', (req, res) => {
             const book = dbBookData.map(book => book.get({
                 plain: true
             }));
-console.log(book);
-            res.render('library', {
+
+            res.render('homepage', {
                 book,
                 loggedIn: req.session.loggedIn
             });
@@ -65,7 +65,7 @@ router.get('/book/:id', (req, res) => {
                     attributes: ['id', 'comment_text', 'user_id', 'book_id'],
                     include: {
                         model: Book,
-                        attributes: ['user_id']
+                        attributes: ['username']
                     }
                 },
                 {
