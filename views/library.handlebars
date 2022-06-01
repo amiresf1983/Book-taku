@@ -1,0 +1,11 @@
+<section>
+  <h1>Library</h1>
+  {{#each book}}
+  <div>
+    <ul class="library-list">
+    <a href="/book/{{id}}"><li class="library-book-title">{{title}}</li></a>
+    <li class="library-author">{{author}}</li>
+    </ul>
+  </div>
+  {{/each}}
+</section>

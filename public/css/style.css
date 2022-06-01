@@ -1,0 +1,15 @@
+
+/* styling for book title on library.handlebars */
+.library-book-title {
+  font-size: 2rem;
+}
+
+/* styling for author name on library.handlebars */
+.library-author {
+  font-size: 1.1rem;
+}
+
+/* remove list styling on library page */
+.library-list {
+  list-style: none;
+}
