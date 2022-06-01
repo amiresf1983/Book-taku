@@ -1,10 +1,159 @@
 [
   {
-    "id" : "1",
+    "id" : 1,
 "title" : "The Art of Racing in the Rain",
 "author" : "Garth Stein",
 "description" : "Enzo knows he is different from other dogs: a philosopher with a nearly human soul (and an obsession with opposable thumbs), he has educated himself by watching television extensively, and by listening very closely to the words of his master, Denny Swift, an up-and-coming race car driver.",
-"pages" : "321",
-"user_id" : "1"
+"pages" : 321,
+"user_id" : 1
+  },
+  {
+    "id" : 2,
+"title" : "Percy Jackson and the Lightning Thief: ",
+"author" : "Rick Riordan",
+"description" : "Percy Jackson is a good kid, but he can't seem to focus on his schoolwork or control his temper. And lately, being away at boarding school is only getting worse - Percy could have sworn his pre-algebra teacher turned into a monster and tried to kill him. When Percy's mom finds out, she knows it's time that he knew the truth about where he came from, and that he go to the one place he'll be safe. She sends Percy to Camp Half Blood, a summer camp for demigods (on Long Island), where he learns that the father he never knew is Poseidon, God of the Sea.",
+"pages" : 377,
+"user_id" : 5
+  },
+  {
+    "id" : 3,
+"title" : "Darkness is Golden",
+"author" : "Mary Hoang",
+"description" : "If you’re reading this, you’re ready for change: to create space in your life for what really matters to you. Darkness Is Golden is your invitation to value and accept yourself – to trust your inner voice, break unhelpful habits and live a life on your own terms. Dealing with the mind is complex. Mary Hoang digs up the golden nuggets she has discovered over a decade in the therapy room, and combines them with unique audio experiences framed by her research in music psychology. You will learn how to build healthier relationships, make space for possibilities and find your wisdom.",
+"pages" : 320,
+"user_id" : 4
+  },
+  {
+    "id" : 4,
+"title" : "They Both Die At The End",
+"author" : "Adam Silvera",
+"description" : "On September 5, a little after midnight, Death-Cast calls Mateo Torrez and Rufus Emeterio to give them some bad news: They’re going to die today.Mateo and Rufus are total strangers, but, for different reasons, they’re both looking to make a new friend on their End Day. The good news: There’s an app for that.",
+"pages" : 389,
+"user_id" : 3
+  },
+  {
+    "id" : 5,
+"title" : "The Book of Lost Things",
+"author" : "John Connolly",
+"description" : "igh in his attic bedroom, twelve-year-old David mourns the death of his mother, with only the books on his shelf for company. But those books have begun to whisper to him in the darkness. Angry and alone, he takes refuge in his imagination and soon finds that reality and fantasy have begun to meld. While his family falls apart around him, David is violently propelled into a world that is a strange reflection of his own -- populated by heroes and monsters and ruled by a faded king who keeps his secrets in a mysterious book, The Book of Lost Things.",
+"pages" : 339,
+"user_id" : 2
+  },
+  {
+    "id" : 6,
+"title" : "Good Omens: The Nice and Accurate Prophecies of Agnes Nutter, Witch",
+"author" : "Neil Gaiman & Terry Pratchett",
+"description" : "According to The Nice and Accurate Prophecies of Agnes Nutter, Witch (the world's only completely accurate book of prophecies, written in 1655, before she exploded), the world will end on a Saturday. Next Saturday, in fact. Just before dinner.",
+"pages" : 491,
+"user_id" : 1
+  },
+  {
+    "id" : 7,
+"title" : "Dracula",
+"author" : "Bram Stoker",
+"description" : "When Jonathan Harker is summoned to the Carpathian Mountains in Transylvania for a real estate transaction, he does not know he is entering the lair of the bloodthirsty vampire, Count Dracula. What follows is a race to stop Dracula from spreading his curse beyond Transylvania. The tale of Dracula unfolds through various letters, diary entries, and newspaper clippings.",
+"pages" : 408,
+"user_id" : 5
+  },
+  {
+    "id" : 8,
+"title" : "Hitchhiker's Guide to the Galaxy",
+"author" : "Douglas Adams",
+"description" : "Seconds before the Earth is demolished to make way for a galactic freeway, Arthur Dent is plucked off the planet by his friend Ford Prefect, a researcher for the revised edition of the The Hitch Hiker's Guide to the Galaxy who, for the last fifteen years, has been posing as an out of work actor. ",
+"pages" : 193,
+"user_id" : 4
+  },
+  {
+    "id" : 9,
+"title" : "Frankenstein",
+"author" : "Mary Shelley",
+"description" : "Scientist Victor Frankenstein learns how to create life, but his discovery goes quickly awry when he creates a monster larger and stronger than an ordinary man. As the monster uses its power to destroy everything Victor loves, the young scientist is forced to embark on a treacherous journey to end the monster’s existence. ",
+"pages" : 260,
+"user_id" : 1
+  },
+  {
+    "id" : 10,
+"title" : "Cross Stitch: Outlander Book 1",
+"author" : "Diana Gabaldon",
+"description" : "Claire Randall is leading a double life. She has a husband in one century - and a lover in another. In 1946, Claire Randall is back from the war and reunited with her husband on a second honeymoon in Scotland. Innocently she walks through a stone circle in the Highlands, and finds herself in a violent skirmish taking place in 1743. Suddenly she is a Sassenach, an outlander, in a country torn by war and by clan feuds. ",
+"pages" : 880,
+"user_id" : 5
+  },
+  {
+    "id" : 11,
+"title" : "Murder on the Orient Express",
+"author" : "Agatha Christie",
+"description" : "Just after midnight, a snowdrift stops the Orient Express in its tracks. The luxurious train is surprisingly full for the time of the year, but by the morning it is one passenger fewer. An American tycoon lies dead in his compartment, stabbed a dozen times, his door locked from the inside. Isolated and with a killer in their midst, detective Hercule Poirot must identify the murderer - in case he or she decides to strike again.",
+"pages" : 240,
+"user_id" : 3
+  },
+  {
+    "id" : 12,
+"title" : "A Game of Thrones: Book 1 of A Song of Fire and Ice",
+"author" : "George R. R. Martin",
+"description" : "Summers span decades. Winter can last a lifetime. And the struggle for the Iron Throne has begun. As Warden of the north, Lord Eddard Stark counts it a curse when King Robert bestows on him the office of the Hand. His honour weighs him down at court where a true man does what he will, not what he must ...and a dead enemy is a thing of beauty. The old gods have no power in the south, Stark's family is split and there is treachery at court. Worse, the vengeance-mad heir of the deposed Dragon King has grown to maturity in exile in the Free Cities. He claims the Iron Throne.",
+"pages" : 864,
+"user_id" : 2
+  },
+  {
+    "id" : 13,
+"title" : "The Hunger Games",
+"author" : "Suzanne Collins",
+"description" : "Sixteen-year-old Katniss Everdeen regards it as a death sentence when she is forced to represent her district in the annual Hunger Games, a fight to the death on live TV. But Katniss has been close to death before - and survival, for her, is second nature. ",
+"pages" : 384,
+"user_id" : 1
+  },
+  {
+    "id" : 14,
+"title" : "The Hobbit",
+"author" : "J. R. R. Tolkien",
+"description" : "Bilbo Baggins enjoys a quiet and contented life, with no desire to travel far from the comforts of home; then one day the wizard Gandalf and a band of dwarves arrive unexpectedly and enlist his services - as a burglar - on a dangerous expedition to raid the treasure-hoard of Smaug the dragon. Bilbo's life is never to be the same again. ",
+"pages" : 400,
+"user_id" : 4
+  },
+  {
+    "id" : 15,
+"title" : "Haikyuu!! Vol.1",
+"author" : "Haruichi Furudate",
+"description" : "Ever since he saw the legendary player known as the 'Little Giant' compete at the national volleyball finals, Shoyo Hinata has been aiming to be the best volleyball player ever! After losing his first and last volleyball match against Tobio Kageyama, the King of the Court, Shoyo Hinata swears to become his rival after graduating middle school. But what happens when the guy who is supposed to be his rival ends up being his teammate?!",
+"pages" : 192,
+"user_id" : 3
+  },
+  {
+    "id" : 16,
+"title" : "The War of the Worlds",
+"author" : "H. G. Wells",
+"description" : "'For a time I believed that mankind had been swept out of existence, and that I stood there alone, the last man left alive.' When a strange, meteor-like object lands in the heart of England, the inhabitants of Earth find themselves victims of a terrible attack. A ruthless race of Martians, armed with heat rays and poisonous smoke, is intent on destroying everything that stands in its way. As the unnamed hero struggles to find his way across decimated wastelands, the fate of the planet hangs in the balance . . .",
+"pages" : 240,
+"user_id" : 2
+  },
+  {
+    "id" : 17,
+"title" : "Silhouette of a Sparrow",
+"author" : "Molly Beth Griffin",
+"description" : "In the summer of 1926, sixteen-year-old Garnet Richardson is sent to a lake resort to escape the polio epidemic in the city. She dreams of indulging in ornithology and a visit to an amusement park--a summer of fun before she returns to a last year of high school, marriage, and middle-class homemaking. But in the country, Garnet finds herself under supervision of oppressive guardians, her father's wealthy cousin and the matron's stuck-up daughter. Only a job in a hat shop, an intense, secret relationship with a beautiful flapper, and a deep faith in her own heart can save her from the suffocation of traditional femininity in this coming-of-age story about a search for both wildness and security in an era full of unrest.",
+"pages" : 208,
+"user_id" : 3
+  },
+  {
+    "id" : 18,
+"title" : "There's a Hippopotamus on Our Roof Eating Cake",
+"author" : "Hazel Edwards",
+"description" : "The imaginary Hippo can do what he likes on the roof. In fact, he does all the things a little girl wishes she could, but is not allowed. When she takes a bath, the hippo takes a shower; when she goes to bed, the hippo watches television on the roof. And when the repair men come to fix the roof, the hippo conveniently disappears, returning of course to eat a very large piece of cake.",
+"pages" : 32
+  },
+  {
+    "id" : 19,
+"title" : "The Wizard's Cat",
+"author" : "Collin Hawkins & Jacqui Hawkins",
+"description" : "The wizard's cat is tired of being a cat, so the wizard turns him into all sorts of other creatures.",
+"pages" : 32
+  },
+  {
+    "id" : 20,
+"title" : "The Very Hungry Catterpillar",
+"author" : "Eric Carle",
+"description" : "This is the story of a very hungry caterpillar growing into a beautiful butterfly.",
+"pages" : 24
   }
 ]
