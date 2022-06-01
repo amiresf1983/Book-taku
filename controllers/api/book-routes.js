@@ -33,13 +33,13 @@ router.get("/", (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-        res.send('GET request for the book page'); 
+        // res.send('GET request for the book page'); 
 });
 
-router.get('/books', (req, res) => {
-    res.send('GET request for the book page'); 
-    return 
-}); 
+// router.get('/books', (req, res) => {
+//     res.send('GET request for the book page'); 
+//     return 
+// }); 
 
 // Getting a single book
 router.get("/:id", (req, res) => {
