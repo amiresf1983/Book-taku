@@ -1,8 +1,32 @@
 [
   {
-    "id": "1",
+    "id": 1,
 "comment_text" : "This book honestly made me cry.",
-"user_id" : "1",
-"book_id" : "1"
+"user_id" : 1,
+"book_id" : 1
+  },
+  {
+    "id": 2,
+"comment_text" : "Highly recommended!",
+"user_id" : 5,
+"book_id" : 1
+  },
+  {
+    "id": 3,
+"comment_text" : "The first book of the Percy Jackson and the Olympians series was a fun read. Great for teens!",
+"user_id" : 2,
+"book_id" : 2
+  },
+  {
+    "id": 4,
+"comment_text" : "Exactly what it says on the tin.",
+"user_id" : 3,
+"book_id" : 4
+  },
+  {
+    "id": 5,
+"comment_text" : "I read this book because of the Amazon series.",
+"user_id" : 4,
+"book_id" : 6
   }
 ]

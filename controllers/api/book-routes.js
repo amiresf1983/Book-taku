@@ -32,6 +32,7 @@ router.get("/", (req, res) => {
             const book = dbBookData.map(book => book.get({
                 plain: true
             }));
+            
 
             res.render('library', {
                 book,
@@ -47,39 +48,47 @@ router.get("/", (req, res) => {
 // }); 
 
 // Getting a single book
-router.get("/:id", (req, res) => {
-    Book.findOne({
+router.get("/:id", async (req, res) => {
+    try {
+   const findBook = await Book.findOne({
             where: {
                 id: req.params.id,
             },
-            attributes: ["id", "title", "author", "description", "pages", "user_id"],
-            include: [{
-                    model: User,
-                    attributes: ["username"],
-                },
-                {
-                    model: Comment,
-                    attributes: ["id", "comment_text", "user_id", "book_id"],
-                    include: {
-                        model: User,
-                        attributes: ["username"],
-                    },
-                },
-            ],
-        })
-        .then((dbBookData) => {
-            if (!dbBookData) {
+            // attributes: ["id", "title", "author", "description", "pages", "user_id"],
+        });
+
+        const getBook = await findBook.get({plain:true});
+
+            if (!findBook) {
                 res.status(404).json({
                     message: "No book found with this id"
                 });
                 return;
             }
-            res.json(dbBookData);
+
+            const bookCommentsData = await Comment.findAll({
+                where: {book_id: req.params.id},
+   include: [{
+       model: User,
+       attributes:["username"]
+   }],
         })
-        .catch((err) => {
+            const bookComments = bookCommentsData.map((comments) => comments.get({plain:true})
+    );
+
+// console.log(bookCommentsData);
+// console.log(bookComments);
+
+            res.render('book-name', {
+                getBook,
+                bookComments,
+                loggedIn: req.session.loggedIn
+            });
+        }
+        catch(err) {
             console.log(err);
             res.status(500).json(err);
-        });
+        }
 });
 
 // Creating comments
