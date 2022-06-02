@@ -1,7 +1,14 @@
- html {
-   font-family: 'Athiti', serif;
- }
+html {
+  font-family: 'Athiti', serif;
+}
 
+body {
+  /* background: #faf5ec; */
+  background-image: url('/assets/bookshelves.jpg');
+  margin: 0;
+  width: 100vw;
+height: 100vh;
+}
 
 header {
   /* background: #faf5ec; */
@@ -9,30 +16,33 @@ header {
   /* background-color: #a39081; */
   /* background-color: #d6a692; */
   /* background-color: #efd9b4; */
-  background-color: #b1c8c7;
-  width:100%;
+  background-color: rgb(250, 245, 236,0.9);
+  width: 100%;
   text-align:center;
-}
-body {
-  background: #faf5ec;
-  margin: 2rem;
-}
-
-/* positioning for logo */
-.logo {
-  display: inline-block;
-  margin: 0 auto;
 }
 
 /* styling for nav items */
 nav {
+  background-color: rgba(177, 200, 199, 0.959);
   font-size: 1.3rem;
-  margin-top: 1rem;
+  line-height: 2rem;
+  padding: 1.5rem;
 }
 
-.library {
+/* styling for content containers */
+.content-container {
+  background-color: rgba(238, 185, 162, 0.9);
+  border-radius:0.3rem;
+  margin-top: 2rem;
   margin: 3rem;
-  background-color: #faf5ec;
+  padding: 1.5rem;
+}
+
+/* styling for library title on library.handlebars */
+
+#library-title {
+  font-size: 3rem;
+  text-align: center;
 }
 
 /* styling for book title on library.handlebars */

@@ -35,7 +35,7 @@ router.get("/", (req, res) => {
 
             res.render('library', {
                 book,
-                loggedIn: req.session.loggedIn
+                loggedIn: req.session.loggedIn,
             });
         })
         // res.send('GET request for the book page'); 
