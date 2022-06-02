@@ -54,7 +54,11 @@ router.get("/:id", async (req, res) => {
             where: {
                 id: req.params.id,
             },
+            // attributes: ["id", "title", "author", "description", "pages", "user_id"],
         });
+
+        const getBook = await findBook.get({plain:true});
+
             if (!findBook) {
                 res.status(404).json({
                     message: "No book found with this id"
@@ -68,14 +72,13 @@ router.get("/:id", async (req, res) => {
        model: User,
        attributes:["username"]
    }],
-
         })
             const bookComments = bookCommentsData.map((comments) => comments.get({plain:true})
     );
-const getBook = await findBook.get({plain:true});
 
-// console.log(bookComments)
-// console.log(bookComments.user);
+// console.log(bookCommentsData);
+// console.log(bookComments);
+
             res.render('book-name', {
                 getBook,
                 bookComments,
