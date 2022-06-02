@@ -79,7 +79,7 @@ router.get("/:id", async (req, res) => {
 // console.log(bookCommentsData);
 // console.log(bookComments);
 
-            res.render('book-name', {
+            res.render('viewbook', {
                 getBook,
                 bookComments,
                 loggedIn: req.session.loggedIn
