@@ -86,7 +86,7 @@ router.get('/book/:id', (req, res) => {
                 plain: true
             });
 
-            res.render('book-name', { ////////////////////////////////////////////////// SINGLE BOOK
+            res.render('viewbook', { ////////////////////////////////////////////////// SINGLE BOOK
                 book,
                 loggedIn: req.session.loggedIn
             });

@@ -13,8 +13,10 @@
 
 <body>
   <header>
+    <h1>Welcome to Book-Taku</h1>
     <img src ="/assets/BOOK-TAKU_transparent_copy.png" alt="Book-Taku logo">
   </header>
+
   <nav>
     <a href="/">Home</a>
     {{#if loggedIn}}
@@ -23,9 +25,10 @@
     <a href="/login">Login</a>
     {{/if}}
     <a href="/api/books">Library</a>
+    <!--a href="/sign-up">Sign Up</a -->
   </nav>
   <main>
-    <div class=" ">
+    <div class="library">
       {{{body}}}
     </div>
   </main>

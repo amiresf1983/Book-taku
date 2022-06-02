@@ -8,7 +8,7 @@ const withAuth = require('../../utils/auth');
 
 
 // Gettting all books
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
     Book.findAll({
             attributes: ["id", "title", "author", "description", "pages", "user_id"],
             order: [
@@ -154,10 +154,10 @@ router.delete("/:id", withAuth, (req, res) => {
 });
 
 router.get('/books', (req, res) => {
-    if (req.session.loggedIn) {
+    if (!req.session.loggedIn) {
         res.redirect('/');
         return;
-    }
+    } 
     res.render('login'); 
 
 });
