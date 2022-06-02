@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book Taku</title>
   <link href="https://fonts.googleapis.com/css2?family=Athiti&display=swap" rel="stylesheet">
+  <!--<link rel="stylesheet" type="text/css" href="/css/login.css">-->
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  
 </head>
 
 <body>
@@ -16,7 +18,7 @@
   <nav>
     <a href="/">Home</a>
     {{#if loggedIn}}
-    <button id="logout" class="btn-no-style">Logout</button>
+    <button id="logout" class="btn-no-style logout">Logout</button>
     {{else}}
     <a href="/login">Login</a>
     {{/if}}

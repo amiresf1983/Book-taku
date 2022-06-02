@@ -1,16 +1,17 @@
 
+    <section>
     <div class="container content-container">
         <div class="forms">
             <div class="form login">
                 <span class="title">Login</span>
 
-                <form action="#">
+                <form class= "login-form" action="#">
                     <div class="input-field">
-                        <input type="text" placeholder="Enter your username" required>
+                        <input type="text" id="username-login" placeholder="Enter your username" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="password" placeholder="Enter your password" required>
+                        <input type="password" class="password" id="password-login" placeholder="Enter your password" required>
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
@@ -25,13 +26,13 @@
                     </div>
 
                     <div class="input-field button">
-                        <input type="button" value="Login Now">
+                        <input type="submit" value="Login Now">
                     </div>
                 </form>
 
                 <div class="login-signup">
                     <span class="text">Not a member?
-                        <a href="signup.html" class="text signup-link">Signup now</a>
+                        <a href="/sign-up" class="text signup-link">Sign up now</a>
                     </span>
                 </div>
             </div>
@@ -41,5 +42,7 @@
             </div>
         </div>
     </div>
+    <script src="/js/login.js"></script>
+    </section>
 
    

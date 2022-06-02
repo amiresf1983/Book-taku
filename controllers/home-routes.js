@@ -108,16 +108,16 @@ router.get('/login', (req, res) => {
     //res.send('GET request to the login page'); 
 });
 
-router.get('/signup', (req, res) => {
+router.get('/sign-up', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         
         return;
     }
-    res.render('signup');
+    res.render('sign-up');
 
     // FOR TESTING -> THIS WORKS 
-    res.send('GET request to the signup page'); 
+    //res.send('GET request to the signup page'); 
 });
 
 
