@@ -1,4 +1,4 @@
-<section class="book-name-card">
+<section class="book-name-card content-container">
   <a href="/book/{{id}}">
     <header>{{getBook.title}}</header>
   </a>
@@ -10,7 +10,7 @@
     </div>
 </section>
 
-<section class="comment">
+<section class="comment content-container">
     <p>Reader's Comment on This Book</p>
     {{#each bookComments as |comments|}}
     <p>{{comments.user.username}}</p>
