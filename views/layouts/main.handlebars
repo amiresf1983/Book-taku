@@ -6,27 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book Taku</title>
   <link href="https://fonts.googleapis.com/css2?family=Athiti&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
   <header>
     <img src ="/assets/BOOK-TAKU_transparent_copy.png" class="logo" alt="Book-Taku logo">
+    Welcome to Book Book-Taku
   </header>
+
+<!-- Home, Sign in, Library, Sign Up navigation -->
   <nav>
     <a href="/">Home</a>
+
+    <!-- confirming logged in is true -->
     {{#if loggedIn}}
     <button id="logout" class="btn-no-style">Logout</button>
     {{else}}
     <a href="/login">Login</a>
     {{/if}}
     <a href="/api/books">Library</a>
+    <a href="/sign-up">Sign Up</a>
   </nav>
+
+<!-- Handlebar templates section -->
   <main>
-    <div class=" ">
+    <div class="library">
       {{{body}}}
     </div>
   </main>
+
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}

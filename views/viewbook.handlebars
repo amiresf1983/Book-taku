@@ -1,16 +1,32 @@
-<section class="book-name-card">
-  <a href="/book/{{id}}">
-    <header>{{title}}</header>
+<section class="view-book">
+  <!--book name -- >
+   <header>{{title}}</header>
 
-    <div class="card-body">
-      <img src="/images/{{filename}}" alt="{{title}}">
-      <p class="description">{{description}}</p>
-      <p>By: {{author}}</p>
-    </div>
-  </a>
+    <div class="book-review">
+      <!-- book image -->
+      <div>
+        <img src="/images/{{filename}}" alt="{{title}}"></a>
+      </div>
+      
+      <!-- book information -->
+      <div class="description">{{description}}
+        <ul>
+          <li>Author: {{author}}</li>
+          <li>Pages: {{pages}}</li>
+        </ul>
+      </div>
+    </div> 
 </section>
 
-<section class="comment">
-    <p>Reader's Comments on This Book</p>
-    <p class="comment-text"> {{Comments}}</p>
+<!-- review section -->
+<section class="reviews">
+  <div class="previous-comment">Previous Comments
+    {{#each Comments.user as |comment|}}
+    {{>previous-comment}} <!-- from partials -->
+    {{/each}}
+  </div>
+
+  <div class="add-comment">Add New Comment</div>
+  <p class="comment-text">{{comment}}</p>  
 </section>
+
