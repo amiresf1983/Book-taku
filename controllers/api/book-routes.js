@@ -48,7 +48,7 @@ router.get("/", withAuth, (req, res) => {
 // }); 
 
 // Getting a single book
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
     try {
    const findBook = await Book.findOne({
             where: {
@@ -92,21 +92,21 @@ router.get("/:id", async (req, res) => {
 });
 
 // Creating comments
-router.post("/:id", withAuth, async (req, res) => {
-    try {
-        const {comment_text, user_id, book_id} = req.body;
-        const bookComment = await Comment.create({
-            user_id,
-            comment_text,
-            book_id
-        });
-        res.status(200).json(bookComment);
-        console.log(bookComment);
-    } catch (error) {
-        res.status(500).json(error);
-        console.error(error);
-    }
-});
+// router.post("/:id", withAuth, async (req, res) => {
+//     try {
+//         const {comment_text, book_id} = req.body;
+//         const bookComment = await Comment.create({
+//             user_id: req.session.user_id,
+//             comment_text,
+//             book_id
+//         });
+//         res.status(200).json(bookComment);
+//         console.log(bookComment);
+//     } catch (error) {
+//         res.status(500).json(error);
+//         console.error(error);
+//     }
+// });
 //     console.log("creating");
 //     Comment.create({
 //             title: req.body.title,
