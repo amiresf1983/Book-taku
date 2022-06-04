@@ -40,7 +40,7 @@ user_id: {
   freezeTableName: true,
   underscored: true,
   modelName: 'book',
-}
-);
+},
+)
 
 module.exports = Book;

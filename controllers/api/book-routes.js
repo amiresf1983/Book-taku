@@ -5,14 +5,20 @@ const {
     Comment
 } = require('../../models');
 const withAuth = require('../../utils/auth');
+//import pagination npm - https://www.npmjs.com/package/pagination-apis
+const pagination = require('pagination-apis');
+
 
 
 // Gettting all books
-router.get("/", withAuth, (req, res) => {
+router.get("/", withAuth, async (req, res) => {
+    const {limit, skip, paginate } = pagination({limit: 5, page: req.query.page }) 
     Book.findAll({
+        limit,
+        offset: skip,
             attributes: ["id", "title", "author", "description", "pages", "user_id"],
             order: [
-                ["created_at", "DESC"]
+                ["title","ASC"]
             ],
             include: [{
                     model: User,
@@ -28,12 +34,13 @@ router.get("/", withAuth, (req, res) => {
                 },
             ],
         })
-        .then(dbBookData => {
-            const book = dbBookData.map(book => book.get({
+        .then(getAllBooks => {
+            const book = getAllBooks.map(book => book.get({
                 plain: true
             }));
-            
 
+            return paginate(book),
+            
             res.render('library', {
                 book,
                 loggedIn: req.session.loggedIn,
