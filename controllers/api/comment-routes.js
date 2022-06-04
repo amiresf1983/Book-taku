@@ -2,46 +2,62 @@
 
 const router = require('express').Router();
 const {
-    User,
-    Book,
-    Comment
+  //   User,
+  //   Book,
+  Comment,
 } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
 // ALL COMMENTS
-router.get("/book/:id", (req, res) => {
-    Comment.findAll()
-        .then((dbCommentData) => res.json(dbCommentData))
-        .catch((err) => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+router.get('/book/:id', (req, res) => {
+  Comment.findAll()
+    .then((dbCommentData) => res.json(dbCommentData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // CREATE COMMENT
-router.post('/', withAuth, async (req, res) => {
+router.post('/:id', async (req, res) => {
+  try {
+    const { comment_text, book_id } = req.body;
+    const bookComment = await Comment.create({
+      user_id: req.session.user_id,
+      comment_text,
+      book_id,
+    });
+    res.status(200).json(bookComment);
+  } catch (error) {
+    res.status(500).json(error);
+    console.error(error);
+  }
+});
 
-        try {
-            const {comment_text, book_id} = req.body;
-            const bookComment = await Comment.create({
-                user_id: req.session.user_id,
-                comment_text,
-                book_id
-            });
-            res.status(200).json(bookComment);
-        } catch (error) {
-            res.status(500).json(error);
-            console.error(error);
-        }
-    
-            // .then(dbCommentData => res.json(dbCommentData), console.log(dbCommentData))
-            // console.log(dbCommentData)
-            // .catch(err => {
-            //     console.log(err);
-            //     res.status(400).json(err);
-    //         // });
-    // }
+//UPDATE COMMENT
+router.put('/', withAuth, async (req, res) => {
+  try {
+    const userId = req.session.user_id;
+    const { id, comment_text, book_id } = req.body;
+    const updateComment = await Comment.update(
+      {
+        where: {
+          id: req.params.id,
+        },
+      },
+      {
+        id: id,
+        comment_text,
+        user_id: userId,
+        book_id,
+      }
+    );
+    console.log(updateComment);
+    res.status(200).json(updateComment);
+  } catch (error) {
+    res.status(500).json(error);
+    console.error(error);
+  }
 });
 
 module.exports = router;

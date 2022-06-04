@@ -1,32 +1,86 @@
-<section class="book-name-card content-container">
-  <a href="/book/{{id}}">
+<section class='book-name-card content-container'>
     <header>{{getBook.title}}</header>
-  </a>
-    <div class="card-body">
-      <img src="/images/{{filename}}" alt="{{title}}">
-      <p class="description">{{getBook.description}}</p>
-      <p>By: {{getBook.author}}</p>
-      <p>Number of pages: {{getBook.pages}}</p>
-    </div>
+  <div class='card-body'>
+    <img src='/images/{{filename}}' alt='{{title}}' />
+    <p class='description'>{{getBook.description}}</p>
+    <p>By: {{getBook.author}}</p>
+    <p>Number of pages: {{getBook.pages}}</p>
+  </div>
 </section>
 
-<section class="comment content-container">
+<section class='comment content-container'>
+  {{#each bookComments as |comments|}}
+  <h1>{{comments.id}}</h1>
+    {{!-- <h2>Verified ID:</h2>
+    <h2>{{../verifiedId}}</h2>
+
+    <h3>Comments User ID:</h3>
+    <h3>{{comments.user_id}}</h3> --}}
+
     <p>Reader's Comment on This Book</p>
-    {{#each bookComments as |comments|}}
-    <p>{{comments.user.username}}</p>
-    <p class="comment-text"> {{comments.comment_text}}</p>
-    {{/each}}
-</section>
+        {{! if user id matches user_id of the comment, show an edit comment button }}
+    {{#verifyUserId ../verifiedId comments.user_id}}
+    <p>{{comments.user.username}} </p>
+    <p id='comment-text-{{comments.id}}' data-id='{{comments.id}}'>{{comments.comment_text}}</p>
+
+      <button class="edit-button">Edit Comment</button>
+    {{else}}
+        <p>{{comments.user.username}} </p>
+    <p class='comment-text' data-id='{{comments.id}}'> {{comments.comment_text}}</p>
+
+    {{/verifyUserId}}
+  {{/each}}
 
 <section>
-    <form class="add-comment">
-            <div class=" ">
-                <label for="comment-content">Add Your Comment</label>
-                <textarea id="comment-text" rows="4" cols="50" placeholder="Start your comment here …"></textarea>
-                   
-            </div>
-            <input class="button" type="submit" value="submit">
-    </form>
+      <h1>{{getBook.title}}</h1>
+  <form id='update-comment-form'>
+    <div class=''>
+      <label for='comment-content'>Update Your Comment</label>
+      <textarea
+        id='updated-comment-text'
+        rows='4'
+        cols='50'
+        placeholder='Start your comment here …' data-id='{{comments.id}}'
+      ></textarea>
+    </div>
+    <input class='button' id="update-button" type='submit' value='submit' />
+  </form>
 </section>
 
-<script src="/js/comment.js"></script>
+
+  {{!-- <form id='update-comment-form' class="hidden">
+
+    <p class='comment-header'>Oops! Made a typo?</p>
+    <p>Fix it up below!</p>
+    <div class='row'>
+      <div class='twelve columns'>
+        <label for='comment-content'>Your Updated Comment</label>
+        <textarea
+          class='u-full-width'
+          placeholder='Update your comment here'
+          id='updated-comment' data-id='{{comments.id}}'
+        >{{comments.comment_text}}</textarea>
+      </div>
+      <input class='button-primary' id="update-button" type='button' value='Update'  />
+    </div>
+  </form>
+</section> --}}
+
+<section>
+  <form class='add-comment'>
+    <div class=''>
+      <label for='comment-content'>Add Your Comment</label>
+      <textarea
+        id='comment-text'
+        rows='4'
+        cols='50'
+        placeholder='Start your comment here …'
+      ></textarea>
+    </div>
+    <input class='button' type='submit' value='submit' />
+  </form>
+</section>
+
+<script src='/js/comment.js'></script>
+<script src='/js/updateComment.js'></script>
+<script src='/js/updateComment2.js'></script>

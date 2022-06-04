@@ -6,6 +6,9 @@
     "node": true,
     "es6": true
   },
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
   "rules": {
     "no-duplicate-case": "error",
     "no-empty": "error",
@@ -27,8 +30,11 @@
     "no-redeclare": "error",
     "brace-style": "error",
     "indent": ["error", 2],
-    "quotes": ["error", "single"],
+    "rules": {
+      "quotes": ["error", "single", "avoid-escape"]
+    },
     "semi": ["error", "always"],
-    "radix": "off"
+    "radix": "off",
+    "allowTemplateLiterals": true
   }
 }

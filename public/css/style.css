@@ -7,7 +7,7 @@ body {
   background-image: url('/assets/bookshelves.jpg');
   margin: 0;
   width: 100vw;
-height: 100vh;
+  height: 100vh;
 }
 
 header {
@@ -16,9 +16,9 @@ header {
   /* background-color: #a39081; */
   /* background-color: #d6a692; */
   /* background-color: #efd9b4; */
-  background-color: rgb(250, 245, 236,0.9);
+  background-color: rgb(250, 245, 236, 0.9);
   width: 100%;
-  text-align:center;
+  text-align: center;
 }
 
 /* styling for nav items */
@@ -32,7 +32,7 @@ nav {
 /* styling for content containers */
 .content-container {
   background-color: rgba(238, 185, 162, 0.9);
-  border-radius:0.3rem;
+  border-radius: 0.3rem;
   margin-top: 2rem;
   margin: 3rem;
   padding: 1.5rem;
@@ -67,10 +67,15 @@ nav {
   cursor: pointer;
   text-decoration: none;
   font-size: 100%;
-  transition: color .1s;
+  transition: color 0.1s;
   margin-left: 16px;
 }
 
 .btn-no-style:hover {
   background: none;
+}
+
+/* utility classes */
+.hidden {
+  display: none;
 }
