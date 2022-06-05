@@ -86,7 +86,7 @@ router.get('/:id', withAuth, async (req, res) => {
       comments.get({ plain: true })
     );
 
-    // console.log(bookComments);
+    console.log(bookComments);
     // console.log(req.session);
     // console.log(req.session.user_id);
 
@@ -129,63 +129,34 @@ router.get('/:id', withAuth, async (req, res) => {
 //             console.log(err);
 //             res.status(500).json(err);
 //         });
-// });
 
 // Updating comments
-router.put('/:id', async (req, res) => {
-  try {
-    // const commentId = req.body.commentIdVal;
-    const userId = req.session.user_id;
-    // const { comment_text, book_id } = req.body;
-    console.log(req.body, 'FOR PUT REQ');
-    const updateComment = await Comment.update(
-      {
-        id: req.body.commentIdVal,
-        comment_text: req.body.commentText,
-        user_id: userId,
-        book_id: req.body.bookId,
+router.put('/:id', withAuth, (req, res) => {
+  Comment.update(
+    {
+      title: req.body.title,
+      content: req.body.post_content,
+    },
+    {
+      where: {
+        id: req.params.id,
       },
-      {
-        where: {
-          id: req.body.commentIdVal,
-        },
+    }
+  )
+    .then((dbCommentData) => {
+      if (!dbCommentData) {
+        res.status(404).json({
+          message: 'No comment found with this id',
+        });
+        return;
       }
-    );
-    console.log(updateComment);
-    console.log(req.body.commentIdVal);
-    res.status(200).json(updateComment);
-  } catch (error) {
-    res.status(500).json(error);
-    console.error(error);
-  }
+      res.json(dbCommentData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
-
-// router.put('/:id', withAuth, (req, res) => {
-//   Comment.update(
-//     {
-//       title: req.body.title,
-//       content: req.body.post_content,
-//     },
-//     {
-//       where: {
-//         id: req.params.id,
-//       },
-//     }
-//   )
-//     .then((dbCommentData) => {
-//       if (!dbCommentData) {
-//         res.status(404).json({
-//           message: 'No comment found with this id',
-//         });
-//         return;
-//       }
-//       res.json(dbCommentData);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
 
 // Deleting comments
 router.delete('/:id', withAuth, (req, res) => {

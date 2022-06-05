@@ -15,7 +15,7 @@ const commentHandler = async (event) => {
   });
 
   if (response.ok) {
-    // document.location.replace(`/api/books/${bookId}`);
+    document.location.replace(`/api/books/${bookId}`);
   } else {
     alert("Sorry! We couldn't add your comment!");
   }

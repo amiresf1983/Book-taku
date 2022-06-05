@@ -5,19 +5,19 @@ const { User, Book, Comment } = require('../models');
 router.get('/', (req, res) => {
   Book.findAll({
     attributes: ['id', 'title', 'author', 'description', 'pages', 'user_id'],
-    // /*include: [{
-    //         model: Book,
-    //         attributes: [],
-    //         include: {
-    //             model: Book,
-    //             attributes: ['username']
-    //         }
-    //     },
-    //     {
-    //         model: User,
-    //         attributes: ['username']
-    //     }
-    // ]*/
+    /*include: [{
+                    model: Book,
+                    attributes: [],
+                    include: {
+                        model: Book,
+                        attributes: ['username']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]*/
   })
     .then((dbBookData) => {
       const book = dbBookData.map((book) =>

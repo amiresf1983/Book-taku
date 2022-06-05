@@ -1,13 +1,28 @@
-html {
+:root {
+  --white: rgb(250, 245, 236, 0.95);
+  --green: rgba(177, 200, 199, 0.95);
+  --red: rgba(238, 185, 162, 0.93);
+  --brown: rgb(163, 144, 129);
+  --beige: rgb(239, 217, 180);
+  --shadow: rgb(46, 41, 36);
+  --textarea-focus: rgba(238, 185, 162);
+}
+* {
   font-family: 'Athiti', serif;
 }
 
 body {
-  /* background: #faf5ec; */
+  /* added background colour as well incase bg image does not load */
+  background-color: var(--white);
   background-image: url('/assets/bookshelves.jpg');
+  background-size: cover;
   margin: 0;
   width: 100vw;
   height: 100vh;
+}
+
+body p {
+  font-size: 1.1rem;
 }
 
 header {
@@ -16,26 +31,47 @@ header {
   /* background-color: #a39081; */
   /* background-color: #d6a692; */
   /* background-color: #efd9b4; */
-  background-color: rgb(250, 245, 236, 0.9);
+  background-color: var(--white);
   width: 100%;
   text-align: center;
 }
 
 /* styling for nav items */
 nav {
-  background-color: rgba(177, 200, 199, 0.959);
-  font-size: 1.3rem;
+  background-color: var(--green);
+  font-size: 1.4rem;
   line-height: 2rem;
   padding: 1.5rem;
 }
 
 /* styling for content containers */
 .content-container {
-  background-color: rgba(238, 185, 162, 0.9);
+  background-color: var(--red);
   border-radius: 0.3rem;
   margin-top: 2rem;
   margin: 3rem;
   padding: 1.5rem;
+}
+
+/* styling for submit comment containers */
+.submit-comment-container {
+  background-color: var(--green);
+  border-radius: 0.3rem;
+  margin-top: 2rem;
+  margin: 3rem;
+  padding: 1.5rem;
+}
+
+/* styling for individual comment containers */
+.individual-comment-container {
+  background-color: var(--brown);
+  border-radius: 0.3rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  box-shadow: 0.1rem 0.1rem 0.05rem var(--shadow);
+}
+.individual-comment-container:nth-of-type(odd) {
+  background-color: rgb(239, 217, 180);
 }
 
 /* styling for library title on library.handlebars */
@@ -47,7 +83,7 @@ nav {
 
 /* styling for book title on library.handlebars */
 .library-book-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 /* styling for author name on library.handlebars */
@@ -58,6 +94,77 @@ nav {
 /* remove list styling on library page */
 .library-list {
   list-style: none;
+  padding-left: 1rem;
+}
+
+/* styling for individual book page */
+
+.book-title {
+  background-color: var(--white);
+  width: 100%;
+  text-align: center;
+  border-radius: 0.3rem;
+}
+
+.card-body {
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+/* submit, login and register form styling */
+form.add-comment,
+.signup,
+.login {
+  text-align: center;
+}
+
+.login-registration-title {
+  margin-bottom: 0.5rem;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.signup-form,
+.login-form {
+  background-color: var(--green);
+  padding: 1rem;
+  text-align: center;
+}
+
+.input-field {
+  margin: 0.5rem;
+}
+
+textarea {
+  resize: vertical;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea:focus,
+input:focus {
+  outline: var(--textarea-focus) solid;
+  border-color: var(--textarea-focus);
+  box-shadow: 0 0 10px var(--textarea-focus);
+}
+
+/* button styling */
+input.button {
+  background-color: var(--white);
+  border-radius: 0.3rem;
+  border: 1px solid var(--green);
+  padding: 0.3rem;
+  min-width: 12vw;
+  box-shadow: 0.1rem 0.1rem 0.05rem var(--shadow);
+}
+input.button:hover {
+  background-color: var(--beige);
 }
 
 .btn-no-style {
@@ -68,14 +175,41 @@ nav {
   text-decoration: none;
   font-size: 100%;
   transition: color 0.1s;
-  margin-left: 16px;
+  /* margin-left: 16px; */
 }
 
 .btn-no-style:hover {
   background: none;
 }
 
+/* pagination styling */
+.pagination {
+  text-align: center;
+}
+
+.pagination a {
+  padding: 0.5rem 1rem;
+}
+
+.pagination a:active {
+  background-color: var(--green);
+  text-decoration: line;
+}
+
+.pagination a:hover:not(active) {
+  background-color: var(--white);
+}
+
 /* utility classes */
 .hidden {
   display: none;
+}
+
+.bold {
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.small-font {
+  font-size: 0.9rem;
 }

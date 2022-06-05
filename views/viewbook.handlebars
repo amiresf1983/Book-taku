@@ -1,6 +1,6 @@
-<section class='book-name-card content-container'>
-    <header>{{getBook.title}}</header>
-  <div class='card-body'>
+<section class='content-container'>
+  <h2 class='book-title'>{{getBook.title}}</h2>
+  <div>
     <img src='/images/{{filename}}' alt='{{title}}' />
     <p class='description'>{{getBook.description}}</p>
     <p>By: {{getBook.author}}</p>
@@ -9,67 +9,21 @@
 </section>
 
 <section class='comment content-container'>
+  <h3>What other Book-taku's think:</h3>
   {{#each bookComments as |comments|}}
-  <h1>{{comments.id}}</h1>
-    {{!-- <h2>Verified ID:</h2>
-    <h2>{{../verifiedId}}</h2>
-
-    <h3>Comments User ID:</h3>
-    <h3>{{comments.user_id}}</h3> --}}
-
-    <p>Reader's Comment on This Book</p>
-        {{! if user id matches user_id of the comment, show an edit comment button }}
-    {{#verifyUserId ../verifiedId comments.user_id}}
-    <p>{{comments.user.username}} </p>
-    <p id='comment-text-{{comments.id}}' data-id='{{comments.id}}'>{{comments.comment_text}}</p>
-
-      <button class="edit-button">Edit Comment</button>
-    {{else}}
-        <p>{{comments.user.username}} </p>
-    <p class='comment-text' data-id='{{comments.id}}'> {{comments.comment_text}}</p>
-
-    {{/verifyUserId}}
-  {{/each}}
-
-<section>
-      <h1>{{getBook.title}}</h1>
-  <form id='update-comment-form'>
-    <div class=''>
-      <label for='comment-content'>Update Your Comment</label>
-      <textarea
-        id='updated-comment-text'
-        rows='4'
-        cols='50'
-        placeholder='Start your comment here …' data-id='{{comments.id}}'
-      ></textarea>
+    <div class='individual-comment-container'>
+      <p class='bold'>{{comments.user.username}}</p>
+      <p class='comment-text'> {{comments.comment_text}}</p>
+      <p class='small-font'>Commented on: {{formatDate comments.createdAt}}</p>
     </div>
-    <input class='button' id="update-button" type='submit' value='submit' />
-  </form>
+  {{/each}}
 </section>
 
-
-  {{!-- <form id='update-comment-form' class="hidden">
-
-    <p class='comment-header'>Oops! Made a typo?</p>
-    <p>Fix it up below!</p>
-    <div class='row'>
-      <div class='twelve columns'>
-        <label for='comment-content'>Your Updated Comment</label>
-        <textarea
-          class='u-full-width'
-          placeholder='Update your comment here'
-          id='updated-comment' data-id='{{comments.id}}'
-        >{{comments.comment_text}}</textarea>
-      </div>
-      <input class='button-primary' id="update-button" type='button' value='Update'  />
-    </div>
-  </form>
-</section> --}}
-
-<section>
+<section class='submit-comment-container'>
   <form class='add-comment'>
-    <div class=''>
-      <label for='comment-content'>Add Your Comment</label>
+    <div>
+      <label for='comment-content' class='bold'>Share your thoughts on
+        {{getBook.title}}</label>
       <textarea
         id='comment-text'
         rows='4'
@@ -77,10 +31,8 @@
         placeholder='Start your comment here …'
       ></textarea>
     </div>
-    <input class='button' type='submit' value='submit' />
+    <input class='button' type='submit' value='Submit' />
   </form>
 </section>
 
 <script src='/js/comment.js'></script>
-<script src='/js/updateComment.js'></script>
-<script src='/js/updateComment2.js'></script>

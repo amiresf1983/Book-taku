@@ -1,40 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Taku</title>
-  <link href="https://fonts.googleapis.com/css2?family=Athiti&display=swap" rel="stylesheet">
-  <!--<link rel="stylesheet" type="text/css" href="/css/login.css">-->
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-  
-</head>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Book Taku</title>
+    <link
+      href='https://fonts.googleapis.com/css2?family=Athiti&display=swap'
+      rel='stylesheet'
+    />
+    <!--<link rel="stylesheet" type="text/css" href="/css/login.css">-->
+    <link rel='stylesheet' type='text/css' href='/css/style.css' />
 
-<body>
-  <header>
-    <h1>Welcome to Book-Taku</h1>
-    <img src ="/assets/BOOK-TAKU_transparent_copy.png" alt="Book-Taku logo">
-  </header>
+  </head>
 
-  <nav>
-    <a href="/">Home</a>
-    {{#if loggedIn}}
-    <button id="logout" class="btn-no-style logout">Logout</button>
-    {{else}}
-    <a href="/login">Login</a>
-    {{/if}}
-    <a href="/api/books">Library</a>
-    <!--a href="/sign-up">Sign Up</a -->
-  </nav>
-  <main>
-    <div class="library">
+  <body>
+    <header>
+      <img src='/assets/BOOK-TAKU_transparent_copy.png' alt='Book-Taku logo' />
+    </header>
+
+    <nav>
+      <a href='/'>Home</a>
+      {{#if loggedIn}}
+        <a href='#' id='logout'>Logout</a>
+        {{! <button id='logout' class='btn-no-style logout'>Logout</button> }}
+      {{else}}
+        <a href='/login'>Login</a>
+      {{/if}}
+      <a href='/api/books'>Library</a>
+      <!--a href="/sign-up">Sign Up</a -->
+    </nav>
+    <main>
       {{{body}}}
-    </div>
-  </main>
-  {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
+    </main>
+    {{#if loggedIn}}
+      <script src='/js/logout.js'></script>
+    {{/if}}
+  </body>
 
 </html>
