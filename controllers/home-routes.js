@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
 const { User, Book, Comment } = require('../models');
 
 router.get('/', (req, res) => {
   Book.findAll({
     attributes: ['id', 'title', 'author', 'description', 'pages', 'user_id'],
+    //FOR FUTURE FEATURE
     /*include: [{
                     model: Book,
                     attributes: [],

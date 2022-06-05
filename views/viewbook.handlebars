@@ -1,11 +1,14 @@
+{{!-- Display book title --}}
 <section class='content-container'>
   <h2 class='book-title'>{{getBook.title}}</h2>
   <div class='flex-container'>
+    {{!-- Display book image --}}
       <img
         src='/images/{{getBook.image_path}}.jpg'
-        alt='{{title}}'
+        alt='{{getBook.title}}'
         class='book-image'
       />
+      {{!-- Display book description, author and number of pages --}}
       </div>
       <p class='description'>{{getBook.description}}</p>
       <p>By: {{getBook.author}}</p>
@@ -14,9 +17,12 @@
   </div>
 </section>
 
+{{!-- Comment section for book --}}
 <section class='comment content-container'>
   <h3>What other Book-taku's think:</h3>
+  {{!-- If statment to toggle what displays if there are no comments --}}
   {{#if bookComments}}
+  {{!-- For each comment, create an individual comment container to display name, comment text and created date --}}
   {{#each bookComments as |comments|}}
     <div class='individual-comment-container'>
       <p class='bold'>{{comments.user.username}}</p>
@@ -24,11 +30,13 @@
       <p class='small-font'>Commented on: {{formatDate comments.createdAt}}</p>
     </div>
   {{/each}}
+  {{!-- Else statement for if there are no comments --}}
   {{else}}
   <p>No comments yet!</p>
   {{/if}}
 </section>
 
+{{!-- Submit comment corm --}}
 <section class='submit-comment-container'>
   <form class='add-comment'>
     <div>

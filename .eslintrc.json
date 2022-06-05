@@ -30,11 +30,9 @@
     "no-redeclare": "error",
     "brace-style": "error",
     "indent": ["error", 2],
-    "rules": {
-      "quotes": ["error", "single", "avoid-escape"]
-    },
+    "quotes": [2, "single", { "avoidEscape": true }],
     "semi": ["error", "always"],
-    "radix": "off",
-    "allowTemplateLiterals": true
-  }
+    "radix": "off"
+  },
+  "extends": ["prettier"]
 }

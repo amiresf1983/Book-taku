@@ -15,6 +15,7 @@ const commentHandler = async (event) => {
   });
 
   if (response.ok) {
+    // load the book's page again to display newly added comment
     document.location.replace(`/api/books/${bookId}`);
   } else {
     alert("Sorry! We couldn't add your comment!");

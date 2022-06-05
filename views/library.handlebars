@@ -1,17 +1,19 @@
-<section class="content-container">
-  <h1 id="library-title">The Library</h1>
+<section class='content-container'>
+  <h1 id='library-title'>The Library</h1>
+  {{! Generate a library list of each book in the library }}
   {{#each book}}
-  <div>
-    <ul class="library-list">
-    <a href="books/{{id}}"><li class="library-book-title">{{title}}</li></a>
-    <li class="library-author">{{author}}</li>
-    </ul>
-  </div>
+    <div>
+      <ul class='library-list'>
+        <a href='books/{{id}}'><li class='library-book-title'>{{title}}</li></a>
+        <li class='library-author'>{{author}}</li>
+      </ul>
+    </div>
   {{/each}}
-  <div class="pagination">
-   <a href="?page=1">1</a>
-  <a href="?page=2">2</a>
-   <a href="?page=3">3</a>
-    <a href="?page=4">4</a>
-</div>
+  {{! Pagination nav }}
+  <div class='pagination'>
+    <a href='?page=1'>1</a>
+    <a href='?page=2'>2</a>
+    <a href='?page=3'>3</a>
+    <a href='?page=4'>4</a>
+  </div>
 </section>

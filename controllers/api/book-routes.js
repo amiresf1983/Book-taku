@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 //import pagination npm - https://www.npmjs.com/package/pagination-apis
 const pagination = require('pagination-apis');
 
-// Gettting all books
+// Getting all books
 router.get('/', withAuth, async (req, res) => {
   const { limit, skip, paginate } = pagination({
     limit: 5,
@@ -55,11 +55,6 @@ router.get('/', withAuth, async (req, res) => {
   // res.send('GET request for the book page');
 });
 
-// router.get('/books', (req, res) => {
-//     res.send('GET request for the book page');
-//     return
-// });
-
 // Getting a single book
 router.get('/:id', withAuth, async (req, res) => {
   try {
@@ -69,7 +64,6 @@ router.get('/:id', withAuth, async (req, res) => {
       where: {
         id: req.params.id,
       },
-      // attributes: ['id', 'title', 'author', 'description', 'pages', 'user_id'],
     });
 
     const getBook = await findBook.get({ plain: true });
@@ -94,10 +88,6 @@ router.get('/:id', withAuth, async (req, res) => {
       comments.get({ plain: true })
     );
 
-    // console.log(bookComments);
-    // console.log(req.session);
-    // console.log(req.session.user_id);
-
     res.render('viewbook', {
       getBook,
       bookComments,
@@ -110,83 +100,55 @@ router.get('/:id', withAuth, async (req, res) => {
   }
 });
 
-// Creating comments
-// router.post('/:id', withAuth, async (req, res) => {
-//     try {
-//         const {comment_text, book_id} = req.body;
-//         const bookComment = await Comment.create({
-//             user_id: req.session.user_id,
-//             comment_text,
-//             book_id
-//         });
-//         res.status(200).json(bookComment);
-//         console.log(bookComment);
-//     } catch (error) {
-//         res.status(500).json(error);
-//         console.error(error);
+// Updating comments - FUTURE FEATURE
+// router.put('/:id', withAuth, (req, res) => {
+//   Comment.update(
+//     {
+//       title: req.body.title,
+//       content: req.body.post_content,
+//     },
+//     {
+//       where: {
+//         id: req.params.id,
+//       },
 //     }
-// });
-//     console.log('creating');
-//     Comment.create({
-//             title: req.body.title,
-//             content: req.body.post_content,
-//             user_id: req.session.user_id
-//         })
-//         .then((dbCommentData) => res.json(dbCommentData))
-//         .catch((err) => {
-//             console.log(err);
-//             res.status(500).json(err);
+//   )
+//     .then((dbCommentData) => {
+//       if (!dbCommentData) {
+//         res.status(404).json({
+//           message: 'No comment found with this id',
 //         });
+//         return;
+//       }
+//       res.json(dbCommentData);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
-// Updating comments
-router.put('/:id', withAuth, (req, res) => {
-  Comment.update(
-    {
-      title: req.body.title,
-      content: req.body.post_content,
-    },
-    {
-      where: {
-        id: req.params.id,
-      },
-    }
-  )
-    .then((dbCommentData) => {
-      if (!dbCommentData) {
-        res.status(404).json({
-          message: 'No comment found with this id',
-        });
-        return;
-      }
-      res.json(dbCommentData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-// Deleting comments
-router.delete('/:id', withAuth, (req, res) => {
-  Comment.destroy({
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then((dbCommentData) => {
-      if (!dbCommentData) {
-        res.status(404).json({
-          message: 'No comment found with this id',
-        });
-        return;
-      }
-      res.json(dbCommentData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// Deleting comments - FUTURE FEATURE
+// router.delete('/:id', withAuth, (req, res) => {
+//   Comment.destroy({
+//     where: {
+//       id: req.params.id,
+//     },
+//   })
+//     .then((dbCommentData) => {
+//       if (!dbCommentData) {
+//         res.status(404).json({
+//           message: 'No comment found with this id',
+//         });
+//         return;
+//       }
+//       res.json(dbCommentData);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 router.get('/books', (req, res) => {
   if (!req.session.loggedIn) {
