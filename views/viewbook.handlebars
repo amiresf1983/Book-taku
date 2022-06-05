@@ -1,15 +1,22 @@
 <section class='content-container'>
   <h2 class='book-title'>{{getBook.title}}</h2>
-  <div>
-    <img src='/images/{{filename}}' alt='{{title}}' />
-    <p class='description'>{{getBook.description}}</p>
-    <p>By: {{getBook.author}}</p>
-    <p>Number of pages: {{getBook.pages}}</p>
+  <div class='flex-container'>
+      <img
+        src='/images/{{getBook.image_path}}.jpg'
+        alt='{{title}}'
+        class='book-image'
+      />
+      </div>
+      <p class='description'>{{getBook.description}}</p>
+      <p>By: {{getBook.author}}</p>
+      <p>Number of pages: {{getBook.pages}}</p>
+    </div>
   </div>
 </section>
 
 <section class='comment content-container'>
   <h3>What other Book-taku's think:</h3>
+  {{#if bookComments}}
   {{#each bookComments as |comments|}}
     <div class='individual-comment-container'>
       <p class='bold'>{{comments.user.username}}</p>
@@ -17,6 +24,9 @@
       <p class='small-font'>Commented on: {{formatDate comments.createdAt}}</p>
     </div>
   {{/each}}
+  {{else}}
+  <p>No comments yet!</p>
+  {{/if}}
 </section>
 
 <section class='submit-comment-container'>

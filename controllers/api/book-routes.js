@@ -13,7 +13,15 @@ router.get('/', withAuth, async (req, res) => {
   Book.findAll({
     limit,
     offset: skip,
-    attributes: ['id', 'title', 'author', 'description', 'pages', 'user_id'],
+    attributes: [
+      'id',
+      'title',
+      'author',
+      'description',
+      'pages',
+      'user_id',
+      'image_path',
+    ],
     order: [['title', 'ASC']],
     include: [
       {
@@ -86,7 +94,7 @@ router.get('/:id', withAuth, async (req, res) => {
       comments.get({ plain: true })
     );
 
-    console.log(bookComments);
+    // console.log(bookComments);
     // console.log(req.session);
     // console.log(req.session.user_id);
 

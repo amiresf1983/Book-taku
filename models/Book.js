@@ -33,6 +33,9 @@ Book.init(
         key: 'id',
       },
     },
+    image_path: {
+      type: DataTypes.TEXT('medium'),
+    },
   },
   {
     sequelize,

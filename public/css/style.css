@@ -14,23 +14,27 @@
 body {
   /* added background colour as well incase bg image does not load */
   background-color: var(--white);
-  background-image: url('/assets/bookshelves.jpg');
+  background-image: url('/images/bookshelves.jpg');
   background-size: cover;
   margin: 0;
   width: 100vw;
   height: 100vh;
 }
 
+/* setting font size */
 body p {
   font-size: 1.1rem;
 }
 
+/* setting image sizes for book covers */
+.book-image {
+  max-width: 30vw;
+  min-width: 20vw;
+  height: auto;
+  text-align: center;
+}
+
 header {
-  /* background: #faf5ec; */
-  /* background-color: #b1c8c7; */
-  /* background-color: #a39081; */
-  /* background-color: #d6a692; */
-  /* background-color: #efd9b4; */
   background-color: var(--white);
   width: 100%;
   text-align: center;
@@ -141,6 +145,7 @@ form.add-comment,
 
 textarea {
   resize: vertical;
+  background-color: var(--white);
   margin-top: 1rem;
   margin-bottom: 1rem;
   width: 100%;
