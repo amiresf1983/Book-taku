@@ -47,7 +47,7 @@ header {
 }
 
 /* styling for nav items */
-nav {
+nav:not(.pagination) {
   background-color: var(--green);
   font-size: 1.4rem;
   line-height: 2rem;
@@ -187,8 +187,17 @@ input.button:hover {
 }
 
 /* pagination styling */
-.pagination {
+ul.pagination {
+  list-style: none;
   text-align: center;
+  margin-top: 3rem;
+  line-height: 2rem;
+  font-size: 1.2rem;
+  background-color: var(--green);
+}
+
+ul.pagination li {
+  display: inline-block;
 }
 
 .pagination a {
@@ -202,6 +211,7 @@ input.button:hover {
 
 .pagination a:hover:not(active) {
   background-color: var(--white);
+  font-size: 1.4rem;
 }
 
 /* utility classes */

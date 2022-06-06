@@ -19,7 +19,10 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: {
+        arg: true,
+        msg: 'Username already in use!',
+      },
     },
     password: {
       type: DataTypes.STRING,
