@@ -1,32 +1,56 @@
-<section class="book-name-card content-container">
-  <a href="/book/{{id}}">
-    <header>{{getBook.title}}</header>
-  </a>
-    <div class="card-body">
-      <img src="/images/{{filename}}" alt="{{title}}">
-      <p class="description">{{getBook.description}}</p>
+{{!-- Display book title --}}
+<section class='content-container'>
+  <h2 class='book-title'>{{getBook.title}}</h2>
+  <div class='flex-container'>
+    {{!-- Display book image --}}
+      <img
+        src='/images/{{getBook.image_path}}.jpg'
+        alt='{{getBook.title}}'
+        class='book-image'
+      />
+      {{!-- Display book description, author and number of pages --}}
+      </div>
+      <p class='description'>{{getBook.description}}</p>
       <p>By: {{getBook.author}}</p>
       <p>Number of pages: {{getBook.pages}}</p>
     </div>
+  </div>
 </section>
 
-<section class="comment content-container">
-    <p>Reader's Comment on This Book</p>
-    {{#each bookComments as |comments|}}
-    <p>{{comments.user.username}}</p>
-    <p class="comment-text"> {{comments.comment_text}}</p>
-    {{/each}}
+{{!-- Comment section for book --}}
+<section class='comment content-container'>
+  <h3>What other Book-taku's think:</h3>
+  {{!-- If statment to toggle what displays if there are no comments --}}
+  {{#if bookComments}}
+  {{!-- For each comment, create an individual comment container to display name, comment text and created date --}}
+  {{#each bookComments as |comments|}}
+    <div class='individual-comment-container'>
+      <p class='bold'>{{comments.user.username}}</p>
+      <p class='comment-text'> {{comments.comment_text}}</p>
+      <p class='small-font'>Commented on: {{formatDate comments.createdAt}}</p>
+    </div>
+  {{/each}}
+  {{!-- Else statement for if there are no comments --}}
+  {{else}}
+  <p>No comments yet!</p>
+  {{/if}}
 </section>
 
-<section>
-    <form class="add-comment">
-            <div class=" ">
-                <label for="comment-content">Add Your Comment</label>
-                <textarea id="comment-text" rows="4" cols="50" placeholder="Start your comment here …"></textarea>
-                   
-            </div>
-            <input class="button" type="submit" value="submit">
-    </form>
+{{!-- Submit comment corm --}}
+<section class='submit-comment-container'>
+  <form class='add-comment'>
+    <div>
+      <label for='comment-content' class='bold'>Share your thoughts on
+        {{getBook.title}}</label>
+      <textarea
+        id='comment-text'
+        rows='4'
+        cols='50'
+        placeholder='Start your comment here …'
+      ></textarea>
+    </div>
+    <input class='button' type='submit' value='Submit' />
+  </form>
 </section>
 
-<script src="/js/comment.js"></script>
+<script src='/js/comment.js'></script>

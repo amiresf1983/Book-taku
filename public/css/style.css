@@ -1,45 +1,90 @@
-html {
+/* variables for colour options */
+:root {
+  --white: rgb(250, 245, 236, 0.95);
+  --green: rgba(177, 200, 199, 0.95);
+  --red: rgba(238, 185, 162, 0.93);
+  --brown: rgb(163, 144, 129);
+  --beige: rgb(239, 217, 180);
+  --shadow: rgb(46, 41, 36);
+  --textarea-focus: rgba(238, 185, 162);
+}
+
+/* setting font family */
+* {
   font-family: 'Athiti', serif;
 }
 
+/* body styling */
 body {
-  /* background: #faf5ec; */
-  background-image: url('/assets/bookshelves.jpg');
+  /* added background colour as well incase bg image does not load */
+  background-color: var(--white);
+  background-image: url('/images/bookshelves.jpg');
+  background-size: cover;
   margin: 0;
   width: 100vw;
-height: 100vh;
+  height: 100vh;
 }
 
+/* setting font size */
+body p {
+  font-size: 1.1rem;
+}
+
+/* setting image sizes for book covers */
+.book-image {
+  max-width: 30vw;
+  min-width: 20vw;
+  height: auto;
+  text-align: center;
+  box-shadow: 0rem 0rem 0.2rem var(--shadow);
+}
+
+/* header styling */
 header {
-  /* background: #faf5ec; */
-  /* background-color: #b1c8c7; */
-  /* background-color: #a39081; */
-  /* background-color: #d6a692; */
-  /* background-color: #efd9b4; */
-  background-color: rgb(250, 245, 236,0.9);
+  background-color: var(--white);
   width: 100%;
-  text-align:center;
+  text-align: center;
 }
 
 /* styling for nav items */
-nav {
-  background-color: rgba(177, 200, 199, 0.959);
-  font-size: 1.3rem;
+nav:not(.pagination) {
+  background-color: var(--green);
+  font-size: 1.4rem;
   line-height: 2rem;
   padding: 1.5rem;
 }
 
 /* styling for content containers */
 .content-container {
-  background-color: rgba(238, 185, 162, 0.9);
-  border-radius:0.3rem;
+  background-color: var(--red);
+  border-radius: 0.3rem;
   margin-top: 2rem;
   margin: 3rem;
   padding: 1.5rem;
 }
 
-/* styling for library title on library.handlebars */
+/* styling for submit comment containers */
+.submit-comment-container {
+  background-color: var(--green);
+  border-radius: 0.3rem;
+  margin-top: 2rem;
+  margin: 3rem;
+  padding: 1.5rem;
+}
 
+/* styling for individual comment containers */
+.individual-comment-container {
+  background-color: var(--brown);
+  border-radius: 0.3rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  box-shadow: 0.1rem 0.1rem 0.05rem var(--shadow);
+}
+.individual-comment-container:nth-of-type(odd) {
+  background-color: rgb(239, 217, 180);
+}
+
+/* styling for library title on library.handlebars */
 #library-title {
   font-size: 3rem;
   text-align: center;
@@ -47,7 +92,7 @@ nav {
 
 /* styling for book title on library.handlebars */
 .library-book-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 /* styling for author name on library.handlebars */
@@ -58,19 +103,127 @@ nav {
 /* remove list styling on library page */
 .library-list {
   list-style: none;
+  padding-left: 1rem;
 }
 
-.btn-no-style {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 100%;
-  transition: color .1s;
-  margin-left: 16px;
+/* styling for individual book page */
+
+.book-title {
+  background-color: var(--white);
+  width: 100%;
+  text-align: center;
+  border-radius: 0.3rem;
+  font-size: 1.7rem;
 }
 
-.btn-no-style:hover {
-  background: none;
+.card-body {
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+/* submit, login and register form styling */
+form.add-comment,
+.signup,
+.login {
+  text-align: center;
+}
+
+.login-registration-title {
+  margin-bottom: 0.5rem;
+}
+
+/* adding flex-box to login and signup forms to center on page */
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* colour and spacing for signup and login form */
+.signup-form,
+.login-form {
+  background-color: var(--green);
+  padding: 1rem;
+  text-align: center;
+}
+
+/* make width of input fields 45viewport width, exclude the 'Remember Me' checkbox */
+input:not(#logcheck) {
+  width: 40vw;
+}
+
+.input-field {
+  margin: 0.5rem;
+}
+
+/* text area styling on comment forms */
+textarea {
+  resize: vertical;
+  background-color: var(--white);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea:focus,
+input:focus {
+  outline: var(--textarea-focus) solid;
+  border-color: var(--textarea-focus);
+  box-shadow: 0 0 1rem var(--textarea-focus);
+}
+
+/* button styling */
+input.button {
+  background-color: var(--white);
+  border-radius: 0.3rem;
+  border: 1px solid var(--green);
+  padding: 0.3rem;
+  min-width: 12vw;
+  box-shadow: 0.1rem 0.1rem 0.05rem var(--shadow);
+}
+input.button:hover {
+  background-color: var(--beige);
+}
+
+/* pagination styling */
+ul.pagination {
+  list-style: none;
+  text-align: center;
+  margin-top: 3rem;
+  line-height: 2rem;
+  font-size: 1.2rem;
+  background-color: var(--green);
+}
+
+ul.pagination li {
+  display: inline-block;
+}
+
+.pagination a {
+  padding: 0.5rem 1rem;
+}
+
+.pagination a:active {
+  background-color: var(--green);
+  text-decoration: line;
+}
+
+.pagination a:hover:not(active) {
+  background-color: var(--white);
+  font-size: 1.4rem;
+}
+
+/* utility classes */
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.small-font {
+  font-size: 0.9rem;
 }

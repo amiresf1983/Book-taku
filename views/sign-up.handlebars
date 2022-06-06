@@ -1,41 +1,57 @@
-    <div class="container content-container">
+<div class='container content-container flex-container'>
 
-        <div class="forms">
+  <div class='forms'>
 
-            <!-- Registration Form -->
-            <div class="form signup">
-                <span class="title">Registration</span>
+    <!-- Registration Form -->
+    <div class='form signup'>
+      <h2 class='login-registration-title'>Registration</h2>
 
-                <form class="signup-form" action="#">
-                    <div class="input-field">
-                        <input type="text" id="username-signup" placeholder="Enter your name" required>
-                        <i class="uil uil-user"></i>
-                    </div>
-                    <div class="input-field">
-                        <input type="text" placeholder="Enter your email" required>
-                        <i class="uil uil-envelope icon"></i>
-                    </div>
-                    <div class="input-field">
-                        <input type="password" id="password-signup" class="password" placeholder="Create a password" required>
-                        <i class="uil uil-lock icon"></i>
-                    </div>
-                    <div class="input-field">
-                        <input type="password" class="password" placeholder="Confirm a password" required>
-                        <i class="uil uil-lock icon"></i>
-                        <i class="uil uil-eye-slash showHidePw"></i>
-                    </div>
-
-                    
-
-                    <div class="input-field button">
-                        <input type="submit" value="Sign Up">
-                    </div>
-                </form>
-
-            </div>
-            <script src="/js/signup.js"></script>
+      <form class='signup-form' action='#'>
+        <div class='input-field'>
+          <input
+            type='text'
+            id='username-signup'
+            placeholder='Enter your name'
+            required
+          />
+          <i class='uil uil-user'></i>
         </div>
+        <div class='input-field'>
+          <input type='text' placeholder='Enter your email' required />
+          <i class='uil uil-envelope icon'></i>
+        </div>
+        <div class='input-field'>
+          <input
+            type='password'
+            id='password-signup'
+            class='password'
+            placeholder='Create a password'
+            required
+          />
+          <i class='uil uil-lock icon'></i>
+        </div>
+        <div class='input-field'>
+          <input
+            type='password'
+            class='password'
+            placeholder='Confirm a password'
+            required
+          />
+          <i class='uil uil-lock icon'></i>
+          <i class='uil uil-eye-slash showHidePw'></i>
+        </div>
+
+        <div class='input-field button'>
+          <input class='button' type='submit' value='Sign Up' />
+        </div>
+      </form>
+      <div class='login-signup'>
+        <span class='text'>Already a Book-taku?
+          <a href='/login' class='text signup-link'>Login here!</a>
+        </span>
+      </div>
+
     </div>
-
-    
-
+    <script src='/js/signup.js'></script>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+{
+  "printWidth": 80,
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "semi": true,
+  "bracketSpacing": true,
+  "singleQuote": true,
+  "prettier.quoteProps": "as-needed",
+  "overrides": [
+    {
+      "files": [
+        "**/*.json",
+        "**/*.css",
+        "**/*.scss",
+        "**/*.html",
+        "**/*.handlebars",
+        "**/*.hbs"
+      ],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}
